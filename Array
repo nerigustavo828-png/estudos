@@ -1,0 +1,5 @@
+let produtos = new Array(
+    {nome:'controle de televisão', preco: 200},
+    {nome:'celular', preco: 1000},
+    {nome:'notebook', preco: 1303});
+console.log(produtos);
