@@ -1,0 +1,25 @@
+const produto = new Array (
+    {nome: "madeira", quantidade: 20, preço: 200},
+    {nome: "Cimmento", quantidade: 55, preço: 80},
+    {nome: "Tijolo", quantidade: 10000, preço: 4},
+    {nome: "Piso", quantidade: 44, preço: 58},
+    {nome: "Torneira", quantidade: 89, preço: 35}
+)
+function calcularValorTotal(produto) {
+    let valorTotal = 0;
+    for (let i = 0; i < produto.length; i++) {
+        valorTotal += 
+        produto[i].quantidade * produto[i].preço;
+    }
+    return valorTotal;
+}
+for (let i = 0; i < produto.length; i++) {
+        if (produto[i].quantidade === 0 ){
+        console.log("Não tem estoque do produto" + produto[i].nome)
+    }else if (produto[i].quantidade >= 1 && produto[i].quantidade <= 5){
+        console.log("Tem estoque, mas e pouco" + produto[i].nome)
+    }else {
+        console.log("Tem estoque, não precisa se preocupar" + produto[i].nome)
+    }
+    console.log("Valor total do produto " + produto[i].nome + ": " + calcularValorTotal(produto[i]));
+}
