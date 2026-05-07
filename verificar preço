@@ -1,0 +1,16 @@
+const moveis = new Array (
+    {nome: "Cadeira", preco: 100},
+    {nome: "Mesa", preco: 200},
+    {nome: "Sofá", preco: 500},
+    {nome: "Armário", preco: 300},
+)  
+function verificarPreco(preco){
+    for(let i = 0; i < moveis.length; i++) {
+        if(moveis[i].preco === preco) {
+            return moveis[i].nome;
+        }
+
+    }
+    return "Nenhum móvel encontrado com esse preço.";
+}
+console.log(verificarPreco(200));
