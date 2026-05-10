@@ -1,0 +1,24 @@
+const funcionarios = new Array [
+    {nome: "Neri", cargo:"Desenbargador", salario:10000},
+    {nome: "Gustavo", cargo:"estofador", salario:2631},
+    {nome: "Michel", cargo: "RH", salario:2000},
+    {nome: "Vinicius", cargo:"policia militar", salario:5332},
+    {nome: "Neto", cargo:"jovem aprendiz", salario:1000}
+]
+function classificarSalario(salario) {
+    if(salario >= 5000){
+        return "Salario alto"
+    }else if(salario >= 2000){
+        return "Salario medio"
+}else {
+        return "Salario baixo"
+    }
+}
+let total = 0
+
+for(let i = 0; i < funcionarios.length; i++) {
+    total += funcionarios[i].salario
+    let classicacao = classificarSalario(funcionarios[i].salario)
+    console.log("Nome" + funcionarios[i].nome + "Cargo" + funcionarios[i].cargo + "Salario" + funcionarios[i].salario + classificacao)
+}
+console.log("Total da folha de pagamento" + total)
