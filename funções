@@ -1,0 +1,49 @@
+//função de expressão, declara uma varivel a uma função
+let nome = function() { 
+    return "Retorna da função"
+}
+
+console.log(nome)// chamada da função, sem os parenteses, mostra o código da função, ou seja, a declaração da função
+console.log(nome()) // chamada de uma função(chamada de metodo) para executar a função e mostrar o resultado
+
+//função arrow, função de expressão mais curta, não tem o nome da função, é anonima, e tem uma sintaxe mais curta
+let arrowF = () => { //uso das chaves na arrowF so e necessario quando vai utilizar mais codigos dentro dela ex: declarar uma outra variavel
+    return "Retorna da função arrow"
+}
+console.log(arrowF) // chamada da função, sem os parenteses, mostra o código da função, ou seja, a declaração da função
+console.log(arrowF()) // chamada de uma função(chamada de metodo) para executar a função e mostrar o resultado
+
+//função imediata
+let retornoDaIIFE = (function() { //função auto-invocada, ou seja, é executada imediatamente após ser declarada,
+//  não precisa ser chamada para ser executada
+    return "Retorna da função imediata"
+})() // os parenteses no final da função, fazem com que ela seja executada imediatamente após ser declarada
+
+console.log(retornoDaIIFE) // mostra o resultado da função imediata, ou seja, o valor retornado pela função
+
+
+
+//função classica 
+function soma(num1, num2) { //função declarada, tem um nome, e pode ser chamada em qualquer lugar do código
+    const soma = num1 + num2; // declaracao de uma variavel soma, que recebe o resultado da soma dos argumentos num1 e num2
+    return soma; // retorna o resultado da soma, para que possa ser usado em outras partes do código
+}
+
+console.log(soma(5, 10)) // chamada da função soma, passando os argumentos 5 e 10, e mostrando o resultado da soma, que é 15
+const resultadoSoma = soma(5, 10) // armazenando o resultado da função soma em uma variavel,
+//  para poder usar o resultado em outras partes do código
+console.log(resultadoSoma) // mostrando o resultado armazenado na variavel resultadoSoma, que é 15
+console.log(resultadoSoma * 2) // usando o resultado da soma para fazer outra operação, multiplicando por 2, e mostrando o resultado, que é 30
+
+
+
+//função anonima, função sem nome, geralmente usada como argumento de outras funções, ou como valor de variaveis
+const soma = function(num1, num2) { //função anonima, sem nome, atribuida a uma variavel soma
+    return num1 + num2; // retorna o resultado da soma dos argumentos num1 e num2
+}
+console.log(soma(5, 10)) // chamada da função soma, passando os argumentos 5 e 10, e mostrando o resultado da soma, que é 15
+
+
+//arrowFunction, função de expressão mais curta, não tem o nome da função, é anonima, e tem uma sintaxe mais curta
+const arrowSoma = (num1, num2) => num1 + num2;  //função arrow, sem nome, atribuida a uma variavel arrowSoma
+console.log(arrowSoma(5, 10)) // chamada da função arrowSoma, passando os argumentos 5 e 10, e mostrando o resultado da soma, que é 15
