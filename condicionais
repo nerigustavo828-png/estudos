@@ -1,0 +1,140 @@
+//hoisting(elevação) é o comportamento do JavaScript de mover as declarações para o topo do escopo antes da execução do código.
+//  Isso significa que variáveis e funções podem ser usadas antes de serem declaradas no código, sem causar um erro.
+//Exemplo de hoisting com funções:  
+hoisted(); // Isso funciona porque a declaração da função é elevada ao topo do escopo.
+function hoisted() {
+    console.log("Esta função foi elevada!");
+}
+
+
+//condicionais 
+const pi = 3.14;
+if (pi === 3.14) {
+    console.log("O valor é verdadeiro");// se pi for igual o tipo e o numero 3.14, o código dentro do bloco if será executado,
+    //  e a mensagem "O valor é verdadeiro" será exibida no console.
+} else {
+    console.log("O valor é falso");
+}
+
+//ifs seguidos 
+//problema e que se tivermos mais de duas condições para verificar? Usar vários ifs seguidos pode tornar o código confuso e difícil de ler.
+//solução: usar if...else if...else para lidar com múltiplas condições de forma mais clara e organizada.
+const cos = 0.5;
+if (cos === 0.5) {
+    console.log("O valor é 0.5");
+}
+if (cos === 0.6) {
+    console.log("O valor é 0.6");
+}
+//melhor solução usando if...else if...else
+
+
+//else if 
+const numeroDeGarrafas = 5;
+if (numeroDeGarrafas === 5) {
+    console.log("Há 5 garrafas");
+} else if (numeroDeGarrafas > 5) {
+    console.log("Há mais de 5 garrafas");
+} else {
+    console.log("Há menos de 5 garrafas");
+}//executa o bloco de código correspondente à condição verdadeira, garantindo que apenas um bloco seja executado,
+//  tornando o código mais claro e eficiente.
+
+
+//operadores lógicos, usando && (AND) para verificar se ambas as condições são verdadeiras.
+//conectivos && (AND) e || (OR) são usados para combinar múltiplas condições em uma única expressão condicional.
+const temperatura = 30, temperatura2 = 25;
+if ((temperatura === 30) && (temperatura2 === 25)) {//so será verdadeiro se ambas as condições forem verdadeiras, ou seja,
+//  se temperatura for igual a 30 e temperatura2 for igual a 25.
+    console.log("A temperatura é 30 e 25");
+} else {
+    console.log("A temperatura não é 30 e 25");
+}
+
+//usando || (OR) para verificar se pelo menos uma das condições é verdadeira.
+const idade = 20, idade2 = 30;
+if ((idade === 20) || (idade2 === 31)) {//será verdadeiro se pelo menos uma das condições for verdadeira, ou seja,
+//  se idade for igual a 20 ou idade2 for igual a 30.
+    console.log("Pelo menos uma das idades é verdadeira");
+} else {
+    console.log("Nenhuma das idades é verdadeira");
+}
+
+
+//estrutura de condição switch case é uma alternativa ao uso de múltiplos if...else if...els
+// e quando se tem várias condições para verificar com base no valor de uma variável.
+const getDay = 4 
+switch (getDay) {
+    case 1: 
+        console.log("Domingo");
+        break; 
+        // O break é usado para evitar que o código continue executando os próximos cases após encontrar o case correspondente.
+    case 2:
+        console.log("Segunda-feira");
+        break;
+    case 3:
+        console.log("Terça-feira");
+        break;
+    case 4:
+        console.log("Quarta-feira");
+        break;
+    case 5:
+        console.log("Quinta-feira");
+        break;
+    case 6:
+        console.log("Sexta-feira");
+        break;
+    case 7:
+        console.log("Sábado");
+        break;
+    default: 
+        console.log("Número inválido para dia da semana");
+}//o código dentro do case correspondente ao valor de getDay será executado, e a execução continuará até encontrar um break ou o final do switch.
+
+
+//vamos supor que os dias da semana foram unificados
+const getDay = 5
+switch (getDay) {
+    case 1: 
+        console.log("Domingo")
+        break
+    case 2:
+    case 3:
+        console.log("Terça-Feira, Quarta-Feira")
+        break
+    case 4: 
+        console.log("Quarta-Feira")
+        break
+    case 5: 
+    case 6:
+        console.log("Sexta-Feira, Quinta-Feira")
+        break
+    case 7:
+        console.log("Sábado")
+        break
+    default: 
+        console.log("Número inválido para dia da semana")
+}
+
+
+//operador ternario
+const age = 88
+age >= 18 ? console.log("de maior") : console.log("de menor")//o operador ternário é uma forma concisa de escrever uma expressão condicional,
+//  onde a expressão antes do ponto de interrogação (?) é a condição a ser avaliada,
+//  a expressão entre o ponto de interrogação e os dois pontos (:) é o valor retornado se a condição for verdadeira,
+//  e a expressão após os dois pontos é o valor retornado se a condição for falsa.
+
+
+//função retornando um valor usando operador ternario 
+const somaMultiplica = (valor) => {
+    return valor >= 18 ? valor + valor : valor * valor //se for maior que 18 soma, se não multiplica
+}
+
+//mesma função usando if...else
+    const somaMultiplica = function(valor) {
+        if (valor >= 18) {
+            return valor + valor
+        } else {
+            return valor * valor
+        }
+    }//ambas as funções fazem a mesma coisa, mas a versão com operador ternário é mais concisa e pode ser mais fácil de ler em casos simples.
