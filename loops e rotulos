@@ -1,0 +1,140 @@
+//loop percorre a objetos e repete um significativo numero de vezes até que sejam alcançadas as condições desejadas 
+
+//formas de uso 
+//iteradores classicos
+//do while
+//while 
+//for
+
+//interadora  de estrutura de dados iteraveis
+//for in 
+//for of
+//os dois ultimos sao usados para percorrer objetos iteraveis, como arrays, strings, maps, sets, entre outros.
+
+//metodos objetos iteraveis 
+//metodo de array e objetos
+
+
+
+//exemplo do while
+//mesmo que o numero de usuarios seja menor que 71, o loop vai rodar pelo menos uma vez,
+//  porque a condicao de parada e verificada depois da execucao do bloco de codigo.
+let numberUser = 2
+do{
+    console.log("Numero de usuarios" + numberUser)
+    numberUser++ //esse incremento e igual a numberUser = numberUser + 1
+}while(numberUser < 71)//conta ate 70
+
+
+//com string
+let nameUser = "Maria"
+let i = 0
+do{
+    console.log(nameUser[i]) //imprime cada letra da string
+    i++
+}while(i < nameUser.length) //conta ate o numero de caracteres da string
+
+
+//while loop 
+let numberDev = 2
+while(numberDev < 21){ //conta ate 20(condicao de parada)
+    console.log("Numero de devs" + numberDev)
+    numberDev++ //incremento para evitar loop infinito
+    //mesma forma de estrutura com string
+}
+//impotante usar if depois de algum loop, para dar uma condição de verdadeiro ou falso,
+// para evitar que o loop rode infinitamente, caso a condição de parada nunca seja alcançada.
+
+//while com if
+let numberDev2 = 2
+while(numberDev2 <= 21) {
+    if(numberDev2 % 4 === 0){ //condicao para imprimir apenas os numeros divisiveis por 4
+        console.log("Numero de devs" + numberDev2)
+    }
+    numberDev2++ //incremento para evitar loop infinito
+}
+
+
+//for loops 
+for(let i = 0; i < 100; i++)
+    console.log("Numero de usuarios" + i)
+//com string
+let nameUser2 = "Joao"
+for(let i = 0; i < nameUser2.length; i++){
+    console.log(nameUser2[i]) //imprime cada letra da string
+}
+
+//com resto%
+for(let i = 0; i < 89; i++){
+    if(i % 5 === 0){ //condicao para imprimir apenas os numeros divisiveis por 5
+        console.log("Numero de usuarios" + i)
+    }
+}
+
+//for usando um not!
+for(let i = 88; i <= 888; i++) {
+    if(i % 2 !== 0){ //condicao para imprimir apenas os numeros impares
+        console.log("Numero de usuarios" + i)
+    }
+}
+
+//usando dois tipos de condição(conectivos logicos)
+for(let i = 0; i < 100; i++){
+    if((i % 7 === 0) && (i % 3 === 0)){ //condicao para imprimir apenas os numeros divisiveis por 7 e 3 
+        console.log("Numero de usuarios" + i)
+    }
+}//lembre-se de usar parenteses para organizar as condicoes quando usar conectivos logicos,
+//  para evitar confusao e garantir que as condicoes sejam avaliadas corretamente. tambem e importante lembrar que o operador && significa "e"
+//  e o operador || significa "ou", entao use o operador correto de acordo com a logica que deseja aplicar.
+//&& so e verdadeiro se ambas as condicoes forem verdadeiras, enquanto || e verdadeiro se pelo menos uma das condicoes for verdadeira.
+//break usa quando for necessario interromper um loop antes que ele termine naturalmente, geralmente quando uma condicao especifica e atendida.
+//continue e usado para pular a iteracao atual de um loop e passar para a proxima iteracao,
+// geralmente quando uma condicao especifica e atendida, mas voce nao quer interromper o loop completamente.
+
+//tirando algum elemento d loop
+const users = ["Maria", "Joao", "Ana", "Pedro", "Lucas"]
+for(let i = 0; i < users.length; i++){
+    if(users[i] === "Ana"){ //condicao para pular o nome "Ana"
+        continue; //quando o loop encontrar "Ana", ele vai pular a iteracao atual e continuar com a proxima iteracao,
+        //  ou seja, ele nao vai imprimir "Ana" e vai passar para o proximo nome.
+    }
+    console.log(users[i]);
+}
+
+// rotulo e um identificador que pode ser usado para nomear um loop ou um bloco de codigo,
+//  permitindo que voce use as palavras-chave break ou continue para controlar o fluxo do loop de maneira mais precisa.
+//exemplo de rotulo com break (:) 
+loop1: for(let i = 0; i < 5; i++){
+    for(let j = 0; j < 5; j++){
+        if((i === 2) && (j === 2)){
+            break loop1; //quando i for igual a 2 e j for igual a 2, o loop1 vai ser interrompido completamente,
+            //  ou seja, ambos os loops vao ser interrompidos e o codigo vai continuar a partir do ponto onde o loop1 foi definido.
+        }
+        console.log(`i: ${i}, j: ${j}`);
+    }
+ }
+ //so um loop interrompido, o outro continua normalmente
+ loop1: for(let i = 0; i < 5; i++){
+    loop2: for(let j = 0; j < 5; j++){
+        if(j === 4) {break loop2 ;} //quando j for igual a 4, o loop2 vai ser interrompido, ou seja,
+        //  o loop interno vai ser interrompido e o loop externo vai continuar normalmente.
+    }
+    console.log(`j: ${j}`);
+}
+
+//rotulo com continue
+loop1: for(let i = 0; i < 5; i++){
+    loop2: for(let j = 0; j < 5; j++){
+        if(j === 2){continue loop1;} //quando j for igual a 2, o loop1 vai ser continuado, ou seja,
+        //  o loop externo vai pular a iteracao atual e passar para a proxima iteracao, enquanto o loop interno vai continuar normalmente.
+        console.log(`i: ${i}, j: ${j}`);
+    }
+}
+
+loop1: for(let i = 0; i < 5; i++){
+    loop2: for(let j = 0; j < 5; j++){
+        if(j === 2){continue loop2;} //quando j for igual a 2, o loop2 vai ser continuado, ou seja,
+        //  o loop interno vai pular a iteracao atual e passar para a proxima iteracao, enquanto o loop externo vai continuar normalmente.
+        console.log(`i: ${i}, j: ${j}`);
+    }
+}
