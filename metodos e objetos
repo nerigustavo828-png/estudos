@@ -1,5 +1,11 @@
 //objetos e uma coleção de dados relacionados, que podem ser propriedades e métodos.
 //inicialização de um objeto new Object() ou {}, Obeject.creat(), ou usando  a forma literal
+//metodos de uso 
+//Object.keys() - retorna um array com as chaves do objeto
+//Object.values() - retorna um array com os valores do objeto
+//Object.entries() - retorna um array com as chaves e valores do objeto
+//JSON.stringify() - converte um objeto em uma string JSON
+
 
 //exemplo de objeto literal
 const objeto = {
@@ -49,3 +55,114 @@ bracketNotation["metodo2"] = () => { //usando arrow function para criar um novo 
 console.log( bracketNotation["prop2"] )
 console.log( bracketNotation["metodo2"]() )
 //propriedade e estatica e metodo nao e estatica mas tem uma ação exemplo o return
+
+
+//objeto literal
+const pessoa = {
+    nome: "João", age: 30, profissao: "Desenvolvedor",
+    saudacao: function() {
+        return `Olá, meu nome é ${this.nome} e eu sou um ${this.profissao}`;
+    }
+}
+
+//referencia a um objeto usando this, this se refere ao objeto atual, ou seja, o objeto pessoa
+console.log( pessoa.saudacao() )
+
+//deletar uma propriedade ou metodo de um objeto usando delete
+delete pessoa.age
+console.log( pessoa ) //age foi deletada do objeto pessoa
+
+//verificar se uma propriedade ou metodo existe em um objeto usando o operador in
+console.log( "nome" in pessoa ) //true
+console.log( "age" in pessoa ) //false, pois age foi deletada do objeto pessoa
+
+//objetos aninhados, ou seja, objetos dentro de objetos
+myObj = {
+    name:"Jhon Doe",
+    age: 30,
+    myCars: {
+        car1: "Ford",
+        car2: "BMW",
+        car3: "Fiat"
+    }
+}
+
+console.log( myObj ) //imprime o objeto completo
+console.log( myObj.name ) //Jhon Doe
+console.log( myObj.age ) //30
+//acessando as propriedades do objeto aninhado
+console.log( myObj.myCars.car1 ) //Ford
+console.log( myObj["myCars"]["car2"] ) //BMW
+//acessando todas as chaves do objeto aninhado usando Object.keys()
+console.log( Object.keys(myObj.myCars) ) //["car1", "car2", "car3"]
+//acessando todas as chaves e valores do objeto aninhado usando Object.entries()
+console.log( Object.entries(myObj.myCars) ) //[["car1", "Ford"], ["car2", "BMW"], ["car3", "Fiat"]]
+
+
+//propriedade com função atributada a um objeto, ou seja, um metodo
+
+const person = {
+    firstName: "Gustavo",
+    lastName: "Neri"
+}
+person.name = function() {
+    return this.firstName + " " + this.lastName;
+}
+
+
+//usando loop para percorrer as propriedades de um objeto usando for...in
+const car = {
+    make: "Ford",
+    model: "Mustang",
+    year: 2020
+}
+
+let text = ""; //usando for...in para percorrer as propriedades do objeto car e concatenar os valores em uma string 
+for(let x in car) {
+    text += car[x] + " " //car[x] acessa o valor da propriedade x do objeto car
+}
+
+console.log( text ) //Ford Mustang 2020  (imprime os valores das propriedades do objeto car concatenados em uma string)
+
+//usando object.values() para percorrer os valores de um objeto e colocar em um array
+const car2 = {
+    make: "Toyota",
+    model: "Corolla",
+    year: 2021
+}
+const myArray = Object.values(car2) //vai acessar os objetos e colocar em forma de array
+
+let text = myArray.toString() //vai colocar um texto com os objetos no array
+
+
+//usando objeto.entries() torna mais simpless em um loop 
+
+const frutas = {banana = 222, maca = 88, melancia = 44}
+
+let text = ""
+
+for(let [frutas, value] of Object.entries(frutas)) {
+    text += frutas + ':' + value 
+}
+
+
+//funções construtoras, importante para quando precisa criar um objeto do mesmo tipo
+function Person(First, age, last) {//vai dar os argumentos para usar no objeto
+    this.firstName = First//aqui ja e o argumento que esta sendo acessada por um objeto 
+    this.age = age
+    this.lastName = last
+}
+
+const myFather = new Person("Gus", 12, "Ne") //vai impimir o const e os argumentos que esta na funcao, nome, idade, etc...
+//na função construtora nao tem o valor this, porem ele se tornara um novo objeto
+
+//adicionar uma nova prop na funcao construtora 
+person.prototype.nationaly = "Brazil"
+//pode usar metodo dentro de uma função construtora
+
+//adicionando um novo metodo no nome do pai
+person.prototype.changeName = (name) => {
+    lastName = name
+}
+
+myFather.changeName("Neri")//vai dar um novo sobrenome ao a variavel myFather
