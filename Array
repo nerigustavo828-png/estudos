@@ -3,3 +3,15 @@ let produtos = new Array(
     {nome:'celular', preco: 1000},
     {nome:'notebook', preco: 1303});
 console.log(produtos);
+//array e um objeto que e usado na construção de arrays  
+//são heterogeneos aceitam diversos tipos de dados para realizar a operação 
+//forma literal 
+const alunos = ["Gusta", "neto"]
+console.log(alunos.length)// 2 elementos
+
+//colocando alguns elementos para parar de existir 
+const animais = ["Cão", "Gato", "Pato"]
+
+animais.length = 2
+
+console.log(animais) //retorna so o primeiro elementos 
